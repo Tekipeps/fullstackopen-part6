@@ -1,3 +1,4 @@
+let timer = null
 export const setNotification = (content, time) => {
   return async (dispatch) => {
     dispatch({
@@ -6,8 +7,8 @@ export const setNotification = (content, time) => {
         content,
       },
     })
-
-    setTimeout(() => {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
       dispatch({
         type: 'REMOVE_NOTIF',
       })
