@@ -13,12 +13,12 @@ export const removeNotification = () => {
   }
 }
 
-const notificationReducer = (state = null, action) => {
+const notificationReducer = (state = { message: ``, show: false }, action) => {
   switch (action.type) {
     case 'ADD_NOTIF':
-      return `you voted ${action.data.content}`
+      return { message: `you voted ${action.data.content}`, show: true }
     case 'REMOVE_NOTIF':
-      return null
+      return { message: ``, show: false }
     default:
       return state
   }
